@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "io.github.gdrfgdrf.spongepowered.mixin.cute.test.plugin.mixin",
+  "mixins": [
+    "TestClassMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
