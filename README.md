@@ -6,6 +6,8 @@ __[English](https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute/blob/master/REA
 
 Getting Started
 ------------------------
+- Latest Version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.gdrfgdrf/spongepowered-mixin-cute.svg)](https://search.maven.org/search?q=g:io.github.gdrfgdrf%20a:spongepowered-mixin-cute)
+
 ## There are two scenarios
 ### Needs to be modified by the Mixin system
 The project that needs to use this project in this way  
@@ -16,7 +18,7 @@ You need to add a dependency to your project
 <dependency>
     <groupId>io.github.gdrfgdrf</groupId>
     <artifactId>spongepowered-mixin-cute-launcher</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>latest version</version>
     <scope>provided</scope>
 </dependency>
 ```

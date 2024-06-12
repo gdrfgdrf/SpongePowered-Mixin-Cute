@@ -6,6 +6,8 @@ SpongePowered-Mixin-Cute
 
 使用
 ------------------------
+- 最新版本: [![Maven Central](https://img.shields.io/maven-central/v/io.github.gdrfgdrf/spongepowered-mixin-cute.svg)](https://search.maven.org/search?q=g:io.github.gdrfgdrf%20a:spongepowered-mixin-cute)
+
 ## 有两种使用情况
 ### 需要被 Mixin 系统修改
 需要以这种方式使用该项目的项目，被称为主程序。
@@ -15,7 +17,7 @@ SpongePowered-Mixin-Cute
 <dependency>
     <groupId>io.github.gdrfgdrf</groupId>
     <artifactId>spongepowered-mixin-cute-launcher</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>latest version</version>
     <scope>provided</scope>
 </dependency>
 ```
