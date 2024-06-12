@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.gdrfgdrf</groupId>
         <artifactId>spongepowered-mixin-cute</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>spongepowered-mixin-cute-test-runner</artifactId>
@@ -21,14 +21,14 @@
         <dependency>
             <groupId>io.github.gdrfgdrf</groupId>
             <artifactId>spongepowered-mixin-cute-launcher</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>io.github.gdrfgdrf</groupId>
             <artifactId>spongepowered-mixin-cute-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
