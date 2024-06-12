@@ -130,7 +130,7 @@ public class ClassDelegate {
             }
         }
 
-        byte[] input = CuteMixin.getInstance().getGameTransformer().transform(name);
+        byte[] input = CuteMixin.getInstance().getGameTransformer().transform();
 
         if (input == null) {
             try {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 CuteFramework's Contributors
+ * Copyright 2024 SpongePowered Mixin Cute Project's Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
