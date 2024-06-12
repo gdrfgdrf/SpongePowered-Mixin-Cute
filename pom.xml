@@ -15,6 +15,39 @@
         <module>spongepowered-mixin-cute-launcher</module>
     </modules>
 
+    <organization>
+        <name>SpongePowered-Mixin-Cute</name>
+        <url>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute</url>
+    </organization>
+    <inceptionYear>2024</inceptionYear>
+    <url>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute</url>
+    <description>The root project of SpongePowered-Mixin-Cute</description>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>gdrfgdrf</id>
+            <name>gdrfgdrf</name>
+            <email>gdrfgdrfgdrfgtdrfgdrfgdrf@hotmail.com</email>
+            <roles>
+                <role>Project Founder</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:gdrfgdrf/SpongePowered-Mixin-Cute.git</developerConnection>
+        <url>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -33,6 +66,64 @@
                     <compilerArgument>-proc:none</compilerArgument>
                     <outputFileName>SpongePowered-Mixin-Cute</outputFileName>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>gdrfgdrf</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.4</version>
+                <configuration>
+                    <executable>C:\Program Files (x86)\GnuPG\bin\gpg.exe</executable>
+                    <keyname>gdrfgdrf</keyname>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

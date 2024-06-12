@@ -8,13 +8,46 @@
         <artifactId>spongepowered-mixin-cute</artifactId>
         <version>1.0.0</version>
     </parent>
-
     <artifactId>spongepowered-mixin-cute-test-runner</artifactId>
+
+    <organization>
+        <name>SpongePowered-Mixin-Cute</name>
+        <url>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute</url>
+    </organization>
+    <inceptionYear>2024</inceptionYear>
+    <url>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute</url>
+    <description>The bootstrap of mixin system</description>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>gdrfgdrf</id>
+            <name>gdrfgdrf</name>
+            <email>gdrfgdrfgdrfgtdrfgdrfgdrf@hotmail.com</email>
+            <roles>
+                <role>Project Founder</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:gdrfgdrf/SpongePowered-Mixin-Cute.git</developerConnection>
+        <url>https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencies>
