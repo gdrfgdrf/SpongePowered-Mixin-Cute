@@ -1,0 +1,5 @@
+{
+  "main-class": "io.github.gdrfgdrf.spongepowered.mixin.cute.test.runner.TestRunner",
+  "plugin-folder": "plugins",
+  "plugin-description-file-name": "plugin_description.json"
+}

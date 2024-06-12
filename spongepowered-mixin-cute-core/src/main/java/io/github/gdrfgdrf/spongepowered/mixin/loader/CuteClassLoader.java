@@ -28,7 +28,7 @@ import java.util.Enumeration;
 import java.util.Objects;
 
 /**
- * 类加载器，参考了 fabric 的 net.fabricmc.loader.impl.launch.knot.KnotClassLoader
+ * 来自 fabric 的 net.fabricmc.loader.impl.launch.knot.KnotClassLoader
  * @author gdrfgdrf
  */
 public class CuteClassLoader extends SecureClassLoader {
@@ -137,7 +137,7 @@ public class CuteClassLoader extends SecureClassLoader {
             Class<?> c = findLoadedClass(name);
 
             if (c == null) {
-                c = delegate.tryLoadClass(name, false);
+                c = delegate.tryLoadClass(name, true);
 
                 if (c == null) {
                     c = originalLoader.loadClass(name);
@@ -155,7 +155,7 @@ public class CuteClassLoader extends SecureClassLoader {
     // 来自 fabric 的 net.fabricmc.loader.impl.launch.knot.KnotClassLoader#findClass
     @Override
     protected Class<?> findClass(String name) {
-        return delegate.tryLoadClass(name, false);
+        return delegate.tryLoadClass(name, true);
     }
 
     // 来自 fabric 的 net.fabricmc.loader.impl.launch.knot.KnotClassLoader#getResourceAsStream(java.lang.String, boolean)
@@ -187,8 +187,11 @@ public class CuteClassLoader extends SecureClassLoader {
         return super.defineClass(name, b, off, len, cs);
     }
 
+    public void addURL(URL url) {
+        urlClassLoader.addURL(url);
+    }
+
     static {
         registerAsParallelCapable();
     }
-
 }

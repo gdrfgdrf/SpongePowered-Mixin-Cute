@@ -220,7 +220,7 @@ public class CuteMixinService implements IMixinService, IClassProvider, IClassBy
 
     @Override
     public String getSideName() {
-        return "CuteMixinDefaultSideName";
+        return CuteMixin.getInstance().getSide().name();
     }
 
     // 来自 fabric 的 net.fabricmc.loader.impl.launch.knot.MixinServiceKnot#getMinCompatibilityLevel

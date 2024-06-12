@@ -12,6 +12,7 @@
         <module>spongepowered-mixin-cute-test-runner</module>
         <module>spongepowered-mixin-cute-core</module>
         <module>spongepowered-mixin-cute-test-plugin</module>
+        <module>spongepowered-mixin-cute-launcher</module>
     </modules>
 
     <properties>
@@ -29,6 +30,7 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <compilerArgument>-proc:none</compilerArgument>
                     <outputFileName>SpongePowered-Mixin-Cute</outputFileName>
                 </configuration>
             </plugin>

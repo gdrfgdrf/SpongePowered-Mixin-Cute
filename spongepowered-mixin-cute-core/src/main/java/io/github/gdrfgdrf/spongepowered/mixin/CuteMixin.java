@@ -28,6 +28,8 @@ public class CuteMixin {
     private GameTransformer gameTransformer;
     @Setter
     private boolean loggingEnabled = false;
+    @Setter
+    private MixinEnvironment.Side side = MixinEnvironment.Side.CLIENT;
 
     private CuteMixin() {
         this.gameTransformer = new GameTransformer();
@@ -41,12 +43,18 @@ public class CuteMixin {
     }
 
     public void initialize() {
-        classLoader = new CuteClassLoader(CuteMixin.class.getClassLoader());
+        initialize(CuteMixin.class.getClassLoader());
+    }
+
+    public void initialize(ClassLoader originalClassLoader) {
+        classLoader = new CuteClassLoader(originalClassLoader);
         Thread.currentThread().setContextClassLoader(classLoader);
 
         MixinBootstrap.init();
-        finishMixinBootstrapping();
+    }
 
+    public void finishInitializing() {
+        finishMixinBootstrapping();
         classLoader.getDelegate().initialize();
     }
 

@@ -46,7 +46,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.Manifest;
 
 /**
- * 类委托，参考了 fabric 的 net.fabricmc.loader.impl.launch.knot.KnotClassDelegate
+ * 来自 fabric 的 net.fabricmc.loader.impl.launch.knot.KnotClassDelegate
  * @author gdrfgdrf
  */
 public class ClassDelegate {

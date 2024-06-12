@@ -11,10 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  */
 @Mixin(TestClass.class)
 public class TestClassMixin {
-
-    @Inject(method = "getString", at = @At("RETURN"), cancellable = true)
-    private static void injectGetString(CallbackInfoReturnable<String> callbackInfo) {
+    @Inject(method = "getString*", at = @At("HEAD"), cancellable = true)
+    public void injectGetString(CallbackInfoReturnable<String> callbackInfo) {
         callbackInfo.setReturnValue("Goodbye World!, I'm hacked");
     }
-
 }
