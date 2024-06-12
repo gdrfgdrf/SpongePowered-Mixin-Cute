@@ -1,5 +1,6 @@
 SpongePowered-Mixin-Cute
 ===
+__[English](https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute/blob/master/README.md)__ | [简体中文](https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute/blob/master/README_ChineseSimplified.md)
 - A bootstrap for the [Mixin](https://github.com/SpongePowered/Mixin) system
 - Part of it uses code from Fabric
 
