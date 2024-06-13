@@ -80,6 +80,7 @@ public class CuteMixinLauncher {
         if (arguments != null && arguments.contains("update") && arguments.length() == 1) {
             mainProgramJarFile.close();
             startUpdate();
+            System.out.println("Update successfully");
             return;
         }
 
