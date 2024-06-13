@@ -16,10 +16,7 @@
 
 package io.github.gdrfgdrf.spongepowered.mixin.launcher.utils;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
