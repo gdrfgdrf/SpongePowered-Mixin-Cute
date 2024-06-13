@@ -32,7 +32,7 @@ io.github.gdrfgdrf.spongepowered.mixin.launcher.base.ProgramProvider.
 You need to create a program_description.json file  
 in your project's resource folder.  
 
-If your project supports plugins  
+If your project supports plugins using the mixin system  
 
 The format of program_description.json needs to be as follows  
 ```json
@@ -42,7 +42,7 @@ The format of program_description.json needs to be as follows
   "plugin-description-file-name": "It says below"
 }
 ```
-If your project does not support plugins,  
+If your project does not support plugins using the mixin system,  
 "plugin-folder" and "plugin-description-file-name" are not required
 
 ---

@@ -30,7 +30,7 @@ io.github.gdrfgdrf.spongepowered.mixin.launcher.base.ProgramProvider
 
 您需要在你的项目的资源文件夹中创建一个 program_description.json 文件.  
 
-如果你的项目支持插件
+如果你的项目支持插件使用 mixin 系统
 
 program_description.json 的格式需要如下
 ```json
@@ -40,7 +40,7 @@ program_description.json 的格式需要如下
   "plugin-description-file-name": "等下说"
 }
 ```
-如果你的项目不支持插件，  
+如果你的项目不支持插件使用 mixin 系统，  
 "plugin-folder" 和 "plugin-description-file-name" 是不需要定义的  
 
 ---
