@@ -23,6 +23,8 @@ import io.github.gdrfgdrf.spongepowered.mixin.launcher.common.PluginDescription;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.common.ProgramDescription;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.exception.*;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.utils.*;
+import io.github.gdrfgdrf.spongepowered.mixin.launcher.utils.argument.ArgumentParser;
+import io.github.gdrfgdrf.spongepowered.mixin.launcher.utils.argument.Arguments;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.utils.jackson.JacksonUtils;
 import io.github.gdrfgdrf.spongepowered.mixin.loader.CuteClassLoader;
 
@@ -74,6 +76,13 @@ public class CuteMixinLauncher {
         File mainProgram = prepareMainProgram();
         JarFile mainProgramJarFile = new JarFile(mainProgram);
 
+        Arguments arguments = ArgumentParser.getInstance().parse(args);
+        if (arguments != null && arguments.contains("update") && arguments.length() == 1) {
+            mainProgramJarFile.close();
+            startUpdate();
+            return;
+        }
+
         ProgramDescription programDescription = prepareProgramDescription(mainProgramJarFile);
         programDescription.validate();
 
@@ -122,6 +131,18 @@ public class CuteMixinLauncher {
         Method main = mainClass.getDeclaredMethod("main", String[].class);
 
         main.invoke(programProvider, (Object) args);
+    }
+
+    private void startUpdate() throws IOException, ProgramNotFoundException, ResourceNotFoundException {
+        boolean startupFromJar = ProgramUtils.isStartupFromJar();
+        if (startupFromJar) {
+            FileUtils.mkdirs(Constants.LIB_FOLDER);
+
+            File target = new File(Constants.LIB_FOLDER + Constants.MAIN_PROGRAM_PATH);
+            FileUtils.delete(target);
+
+            prepareMainProgram();
+        }
     }
 
     private File prepareMainProgram() throws IOException, ProgramNotFoundException, ResourceNotFoundException {

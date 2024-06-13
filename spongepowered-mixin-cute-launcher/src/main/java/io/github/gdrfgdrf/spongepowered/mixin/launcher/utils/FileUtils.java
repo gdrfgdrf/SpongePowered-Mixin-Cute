@@ -27,8 +27,20 @@ import java.util.jar.JarFile;
 public class FileUtils {
     private FileUtils() {}
 
-    public static void mkdirs(String name) {
-        File file = new File(name);
+    public static void delete(String path) {
+        File file = new File(path);
+        delete(file);
+    }
+
+    @SuppressWarnings("all")
+    public static void delete(File file) {
+        if (file.exists()) {
+            file.delete();
+        }
+    }
+
+    public static void mkdirs(String path) {
+        File file = new File(path);
         mkdirs(file);
     }
 

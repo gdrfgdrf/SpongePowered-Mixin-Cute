@@ -27,7 +27,7 @@ public class TestClass {
     }
 
     public String getString() {
-        return "Hello World, I'm not hacked";
+        return "Hello World, I'm not hacked, test";
     }
 
 }

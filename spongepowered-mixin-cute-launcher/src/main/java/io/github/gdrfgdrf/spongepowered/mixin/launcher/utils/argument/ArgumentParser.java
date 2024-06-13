@@ -32,8 +32,16 @@ public class ArgumentParser {
                     Argument argument = new Argument();
 
                     int firstSpace = str.indexOf(" ");
+                    if (firstSpace == -1) {
+                        firstSpace = str.length();
+                    }
+
                     String key = str.substring(0, firstSpace);
-                    String value = str.substring(firstSpace + 1);
+                    String value = null;
+
+                    if (firstSpace + 1 <= str.length()) {
+                        value = str.substring(firstSpace + 1);
+                    }
 
                     argument.setKey(key);
                     argument.setValue(value);
