@@ -4,6 +4,15 @@ __[English](https://github.com/gdrfgdrf/SpongePowered-Mixin-Cute/blob/master/REA
 - A bootstrap for the [Mixin](https://github.com/SpongePowered/Mixin) system
 - Part of it uses code from Fabric
 
+For Users
+------------------------
+If the project that uses the project has a new update,  
+you can use the "java -jar filename -update" to the jar file  
+which has been published by the developer of that project.  
+The project will be updated after the command is run.  
+After the update, the old local main program file will be overwritten   
+as the new main program file.
+
 Getting Started
 ------------------------
 - Latest Version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.gdrfgdrf/spongepowered-mixin-cute.svg)](https://search.maven.org/search?q=g:io.github.gdrfgdrf%20a:spongepowered-mixin-cute)

@@ -4,13 +4,19 @@ SpongePowered-Mixin-Cute
 - 实现了对 [Mixin](https://github.com/SpongePowered/Mixin) 系统引导
 - 使用了 [Fabric](https://github.com/FabricMC/fabric) 的代码
 
+用户
+------------------------
+如果使用该项目的项目有新的更新，  
+您可以对那个项目的开发者发布的 jar 文件使用 "java -jar filename -update" 来更新主程序  
+更新后，旧的本地主程序文件将被覆盖为新的主程序文件。
+
 使用
 ------------------------
 - 最新版本: [![Maven Central](https://img.shields.io/maven-central/v/io.github.gdrfgdrf/spongepowered-mixin-cute.svg)](https://search.maven.org/search?q=g:io.github.gdrfgdrf%20a:spongepowered-mixin-cute)
 
 ## 有两种使用情况
 ### 需要被 Mixin 系统修改
-需要以这种方式使用该项目的项目，被称为主程序。
+需要以这种方式使用该项目的项目，被称为主程序
 
 你需要添加一个依赖到你的项目
 ```xml
