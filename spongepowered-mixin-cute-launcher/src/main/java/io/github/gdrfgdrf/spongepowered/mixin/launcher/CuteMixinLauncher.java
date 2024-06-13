@@ -21,7 +21,7 @@ import io.github.gdrfgdrf.spongepowered.mixin.launcher.base.ProgramProvider;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.common.Constants;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.common.PluginDescription;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.common.ProgramDescription;
-import io.github.gdrfgdrf.spongepowered.mixin.launcher.exception.WrongProgramProviderException;
+import io.github.gdrfgdrf.spongepowered.mixin.launcher.exception.*;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.utils.*;
 import io.github.gdrfgdrf.spongepowered.mixin.launcher.utils.jackson.JacksonUtils;
 import io.github.gdrfgdrf.spongepowered.mixin.loader.CuteClassLoader;
@@ -32,6 +32,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -186,8 +187,20 @@ public class CuteMixinLauncher {
         return plugins;
     }
 
-    private PluginDescription preparePlugin(File plugin, String pluginDescriptionFileName) throws IOException {
+    private PluginDescription preparePlugin(File plugin, String pluginDescriptionFileName) throws
+            IOException,
+            DescriptionNotFoundException
+    {
         InputStream inputStream = FileUtils.readJarResource(plugin, pluginDescriptionFileName, false);
+        AssertUtils.expression(
+                inputStream != null,
+                new DescriptionNotFoundException(
+                        "Unable to get the " +
+                        pluginDescriptionFileName +
+                        " file from plugin jar"
+                )
+        );
+
         return JacksonUtils.readInputStream(inputStream, PluginDescription.class);
     }
 
@@ -196,7 +209,7 @@ public class CuteMixinLauncher {
                 .map(plugin -> {
                     try {
                         return preparePlugin(plugin, pluginDescriptionFileName);
-                    } catch (IOException e) {
+                    } catch (IOException | DescriptionNotFoundException e) {
                         throw new RuntimeException(e);
                     }
                 })
