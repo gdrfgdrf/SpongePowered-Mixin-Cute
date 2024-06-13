@@ -16,6 +16,7 @@
 
 package io.github.gdrfgdrf.spongepowered.mixin.launcher.utils;
 
+import io.github.gdrfgdrf.spongepowered.mixin.launcher.exception.ResourceNotFoundException;
 import lombok.Cleanup;
 
 import java.io.File;
@@ -30,16 +31,24 @@ import java.nio.file.Files;
 public class ClassUtils {
     private ClassUtils() {}
 
-    public static void saveResource(String name, File target) throws IOException {
+    public static void saveResource(String name, File target) throws IOException, ResourceNotFoundException {
         saveResource(name, target, ClassUtils.class.getClassLoader());
     }
 
-    public static void saveResource(String name, File target, ClassLoader classLoader) throws IOException {
+    public static void saveResource(String name, File target, ClassLoader classLoader) throws
+            IOException,
+            ResourceNotFoundException
+    {
         if (target.exists()) {
             return;
         }
         @Cleanup
         InputStream resourceAsStream = getResourceAsStream(name, classLoader);
+        AssertUtils.expression(
+                resourceAsStream != null,
+                new ResourceNotFoundException("Unable to get resource file " + name + " from jar")
+        );
+
         Files.copy(resourceAsStream, target.toPath());
     }
 

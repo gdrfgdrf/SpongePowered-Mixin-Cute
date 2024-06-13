@@ -60,17 +60,22 @@ public class CuteMixinLauncher {
 
     private void run(String[] args) throws
             IOException,
+            ProgramNotFoundException,
+            ResourceNotFoundException,
+            DescriptionNotFoundException,
+            InvalidPropertyException,
             WrongProgramProviderException,
             ClassNotFoundException,
             InvocationTargetException,
             NoSuchMethodException,
             InstantiationException,
-            IllegalAccessException
-    {
+            IllegalAccessException {
         File mainProgram = prepareMainProgram();
         JarFile mainProgramJarFile = new JarFile(mainProgram);
 
         ProgramDescription programDescription = prepareProgramDescription(mainProgramJarFile);
+        programDescription.validate();
+
         File[] plugins = preparePluginFolder(programDescription.getPluginFolder());
 
         CuteMixin.getInstance().initialize();
@@ -97,7 +102,6 @@ public class CuteMixinLauncher {
         }
 
         CuteMixin.getInstance().finishInitializing();
-
         CuteMixin.getInstance().getClassLoader().addURL(mainProgram.toURI().toURL());
 
         CuteClassLoader classLoader = CuteMixin.getInstance().getClassLoader();
@@ -119,7 +123,7 @@ public class CuteMixinLauncher {
         main.invoke(programProvider, (Object) args);
     }
 
-    private File prepareMainProgram() throws IOException {
+    private File prepareMainProgram() throws IOException, ProgramNotFoundException, ResourceNotFoundException {
         boolean startupFromJar = ProgramUtils.isStartupFromJar();
         if (startupFromJar) {
             FileUtils.mkdirs(Constants.LIB_FOLDER);
@@ -133,11 +137,33 @@ public class CuteMixinLauncher {
             return target;
         }
 
-        return new File(ClassUtils.getResource(Constants.MAIN_PROGRAM_PATH).getFile());
+        ProgramNotFoundException exception = new ProgramNotFoundException("The program.jar file could not be found");
+
+        URL resource = ClassUtils.getResource(Constants.MAIN_PROGRAM_PATH);
+        AssertUtils.expression(
+                resource != null,
+                exception
+        );
+
+        File file = new File(resource.getFile());
+        AssertUtils.expression(
+                file.exists(),
+                exception
+        );
+
+        return file;
     }
 
-    private ProgramDescription prepareProgramDescription(JarFile jarFile) throws IOException {
+    private ProgramDescription prepareProgramDescription(JarFile jarFile) throws
+            IOException,
+            DescriptionNotFoundException
+    {
         InputStream inputStream = FileUtils.readJarResource(jarFile, Constants.PROGRAM_DESCRIPTION_FILE_NAME);
+        AssertUtils.expression(
+                inputStream != null,
+                new DescriptionNotFoundException("Unable to get the program_description.json file from program.jar")
+        );
+
         return JacksonUtils.readInputStream(inputStream, ProgramDescription.class);
     }
 
