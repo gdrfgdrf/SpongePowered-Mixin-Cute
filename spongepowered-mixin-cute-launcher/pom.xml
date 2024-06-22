@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.gdrfgdrf</groupId>
         <artifactId>spongepowered-mixin-cute</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
     </parent>
     <artifactId>spongepowered-mixin-cute-launcher</artifactId>
 
@@ -74,7 +74,7 @@
         <dependency>
             <groupId>io.github.gdrfgdrf</groupId>
             <artifactId>spongepowered-mixin-cute-core</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
         </dependency>
     </dependencies>
 
