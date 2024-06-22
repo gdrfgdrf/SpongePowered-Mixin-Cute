@@ -27,7 +27,9 @@ SpongePowered-Mixin-Cute
     <scope>provided</scope>
 </dependency>
 ```
-注意：请确保 scope 的值为 provided
+注意：  
+如果要方便的进行测试 scope 可以不是 provided，  
+但如果要对外进行发布，scope 则必须是 provided
 
 ---
 

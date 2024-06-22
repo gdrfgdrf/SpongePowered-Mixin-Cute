@@ -31,7 +31,9 @@ You need to add a dependency to your project
     <scope>provided</scope>
 </dependency>
 ```
-Note that be sure to define scope as provided.
+Note:  
+If you want to facilitate the test scope can not be provided,  
+But if it is to be released to the public, the scope must be provided.
 
 ---
 
