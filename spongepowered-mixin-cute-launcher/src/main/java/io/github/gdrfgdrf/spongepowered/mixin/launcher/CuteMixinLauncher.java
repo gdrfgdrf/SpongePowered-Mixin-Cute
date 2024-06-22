@@ -129,7 +129,7 @@ public class CuteMixinLauncher {
             IllegalAccessException
     {
         Object programProvider = mainClass.getDeclaredConstructor().newInstance();
-        Method main = mainClass.getDeclaredMethod("main", String[].class);
+        Method main = mainClass.getDeclaredMethod("start", String[].class);
 
         main.invoke(programProvider, (Object) args);
     }

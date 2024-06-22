@@ -21,10 +21,11 @@ import io.github.gdrfgdrf.spongepowered.mixin.launcher.base.ProgramProvider;
 /**
  * @author gdrfgdrf
  */
+@SuppressWarnings("unused")
 public class TestRunner implements ProgramProvider {
     @Override
     @SuppressWarnings("all")
-    public void main(String[] args) {
+    public void start(String[] args) {
         try {
             run();
         } catch (Exception e) {

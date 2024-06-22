@@ -24,9 +24,15 @@ package io.github.gdrfgdrf.spongepowered.mixin.launcher.base;
 public interface ProgramProvider {
     /**
      * 用来替代原本的 public static void main(String[] args) 方法，当 Mixin 系统加载完成时将会调用
+     * 但是，为了测试，原本的 public static void main(String[] args) 方法建议保留，直到对外公布时才去除，
+     * 其内容和该方法的实现一致
+     * <p>
+     * 测试时 IDE 将会调用原本的 public static void main(String[] args) 方法，
+     * 运行时将会调用该方法
+     *
      * @param args
 	 *        运行时提供的参数
      * @author gdrfgdrf
      */
-    void main(String[] args);
+    void start(String[] args);
 }
